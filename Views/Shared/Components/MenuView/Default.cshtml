@@ -1,0 +1,8 @@
+@model IEnumerable<DoAn.Models.tblMenu>
+
+<nav>
+    @foreach (var item in Model.Where(m => m.Levels == 1).OrderBy(m => m.MenuOrder))
+    {
+        <a class="nav-item" href="@item.Link">@item.MenuName</a>
+    }
+</nav>

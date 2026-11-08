@@ -1,0 +1,12 @@
+
+@using Microsoft.AspNetCore.Http
+
+@{
+    ViewData["Title"] = "Trang chủ";
+    var hoTen = Context.Session.GetString("HoTen") ?? "Nhân viên";
+}
+
+<section class="welcome">
+    <h1>Xin chào, @hoTen <span>👋</span></h1>
+    <p>Đây là tổng quan về tài sản và các yêu cầu của bạn.</p>
+</section>

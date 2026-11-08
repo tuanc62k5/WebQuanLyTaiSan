@@ -1,0 +1,77 @@
+@model DoAn.Models.DangNhap
+
+@{
+    ViewData["Title"] = "Đăng nhập";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Đăng nhập - Quản lý tài sản</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+</head>
+
+<body class="bg-light">
+    <div class="container min-vh-100 d-flex align-items-center justify-content-center">
+        <div class="card border-0 shadow rounded-4"
+             style="width: 100%; max-width: 420px;">
+
+            <div class="card-body p-4 p-md-5">
+                <div class="text-center mb-4">
+                    <h3 class="fw-bold">Quản lý tài sản</h3>
+                    <p class="text-secondary">Đăng nhập vào hệ thống</p>
+                </div>
+
+                <form asp-controller="DangNhap"
+                      asp-action="Index"
+                      method="post">
+
+                    @Html.AntiForgeryToken()
+
+                    <div asp-validation-summary="ModelOnly"
+                         class="text-danger small mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="TenDangNhap"
+                               class="form-label">
+                            Tên đăng nhập
+                        </label>
+
+                        <input asp-for="TenDangNhap"
+                               class="form-control"
+                               placeholder="Nhập tên đăng nhập" />
+
+                        <span asp-validation-for="TenDangNhap"
+                              class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="MatKhau"
+                               class="form-label">
+                            Mật khẩu
+                        </label>
+
+                        <input asp-for="MatKhau"
+                               type="password"
+                               class="form-control"
+                               placeholder="Nhập mật khẩu" />
+
+                        <span asp-validation-for="MatKhau"
+                              class="text-danger small"></span>
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-primary w-100 py-2">
+                        Đăng nhập
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
